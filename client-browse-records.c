@@ -108,17 +108,17 @@ int main(AVAHI_GCC_UNUSED int argc, AVAHI_GCC_UNUSED char*argv[]) {
     }
 
     /* Create the record browser */
-	/*avahi_record_browser_new	(	AvahiClient * 	client,
-									AvahiIfIndex 	interface,
-									AvahiProtocol 	protocol,
-									const char * 	name,
-									uint16_t 	clazz,
-									uint16_t 	type,
-									AvahiLookupFlags 	flags,
-									AvahiRecordBrowserCallback 	callback,
-									void * 	userdata 
-								)	*/
-    if (!(sb = avahi_record_browser_new(client, AVAHI_IF_UNSPEC, AVAHI_PROTO_UNSPEC, "Brother DCP-8011DN", AVAHI_DNS_CLASS_IN, AVAHI_DNS_TYPE_A, 0, browse_callback, client))) {
+    /*avahi_record_browser_new	(	AvahiClient * 	client,
+					AvahiIfIndex 	interface,
+					AvahiProtocol 	protocol,
+					const char * 	name,
+					uint16_t 	clazz,
+					uint16_t 	type,
+					AvahiLookupFlags 	flags,
+					AvahiRecordBrowserCallback 	callback,
+					void * 	userdata 
+					)	*/
+    if (!(sb = avahi_record_browser_new(client, AVAHI_IF_UNSPEC, AVAHI_PROTO_UNSPEC, "hostname.local", AVAHI_DNS_CLASS_IN, AVAHI_DNS_TYPE_A, 0, browse_callback, client))) {
         fprintf(stderr, "Failed to create record browser: %s\n", avahi_strerror(avahi_client_errno(client)));
         goto fail;
     }
